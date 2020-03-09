@@ -5,14 +5,19 @@ import router from "./router";
 import store from "./store";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-// @ts-ignore
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { faListUl } from '@fortawesome/free-solid-svg-icons';
+import { faChartLine } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 Vue.config.productionTip = false;
 
 library.add(faUserSecret);
-library.add(faCoffee);
+library.add(faHome);
+library.add(faCog);
+library.add(faListUl);
+library.add(faChartLine);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
