@@ -2,22 +2,29 @@
   <div class="transaction-record">
     <div style="display:flex">
       <div class="transaction-icon">
-        <fontawesome-icon class="icon" icon="television"></fontawesome-icon>
+        <font-awesome-icon class="icon" icon="tv"></font-awesome-icon>
       </div>
+      <!-- <div class="transaction-icon-ph" /> -->
       <div class="transaction-info">
-        <p class="transaction-title">NETFLIX.COM</p>
-        <P class="transaction-desc">14/03/2019 - Entertainment</P>
+        <p class="transaction-title">{{transaction.title}}</p>
+        <P class="transaction-desc">{{transaction.date}} - {{transaction.type}}</P>
       </div>
     </div>
     <div class="transaction-amount">
-      <p>$12.99</p>
+      <p>{{transaction.amount}}</p>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-export default Vue.extend({});
+import Transaction from "@/models/Transaction";
+
+export default Vue.extend({
+  props: {
+    transaction: Transaction
+  }
+});
 </script>
 
 <style lang='scss' scoped>
@@ -28,11 +35,18 @@ export default Vue.extend({});
   flex-flow: row;
   width: auto;
   height: 50px;
-  color: #fff;
   justify-content: space-between;
   padding: 10px;
+  background-color: $transaction-record-bg;
+
+  &:hover {
+    background-color: lighten($color: $transaction-record-bg, $amount: 5%);
+  }
 
   .transaction-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 40px;
     width: 40px;
     background-color: $transaction-icon-entertainment;
@@ -41,10 +55,17 @@ export default Vue.extend({});
     align-self: flex-start;
 
     .icon {
-      font-size: 100%;
+      font-size: 1em;
       color: $transaction-icon-color;
     }
   }
+
+  // .transaction-icon-ph {
+  //   background-color: lighten(
+  //     $color: $transaction-icon-entertainment,
+  //     $amount: 20%
+  //   );
+  // }
 
   .transaction-info {
     display: flex;
@@ -78,7 +99,7 @@ export default Vue.extend({});
 
     p {
       font-size: 0.9em;
-      font-weight: 100;
+      font-weight: 300;
       color: $transaction-amount;
     }
   }
