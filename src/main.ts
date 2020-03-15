@@ -10,6 +10,7 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { faListUl } from '@fortawesome/free-solid-svg-icons';
 import { faChartLine } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faTv } from "@fortawesome/free-solid-svg-icons";
 
 Vue.config.productionTip = false;
 
@@ -18,6 +19,7 @@ library.add(faHome);
 library.add(faCog);
 library.add(faListUl);
 library.add(faChartLine);
+library.add(faTv);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

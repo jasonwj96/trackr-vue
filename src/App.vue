@@ -26,12 +26,20 @@ html,
 body {
   padding: 0px;
   margin: 0px;
-  width: auto;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   box-sizing: border-box;
   background-color: $main-bg;
 }
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
+  min-width: 100%;
+  min-height: 100%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -4,17 +4,14 @@
       <font-awesome-icon class="nav-btn-icon" icon="home"></font-awesome-icon>
       <p class="nav-btn-text">Home</p>
     </div>
-
     <div class="nav-btn">
       <font-awesome-icon class="nav-btn-icon" icon="list-ul"></font-awesome-icon>
       <p class="nav-btn-text">Transactions</p>
     </div>
-
     <div class="nav-btn">
       <font-awesome-icon class="nav-btn-icon" icon="chart-line"></font-awesome-icon>
       <p class="nav-btn-text">Analytics</p>
     </div>
-
     <div class="nav-btn">
       <font-awesome-icon class="nav-btn-icon" icon="cog"></font-awesome-icon>
       <p class="nav-btn-text">Settings</p>
@@ -66,11 +63,13 @@ export default Vue.extend({
   color: $nav-btn-icon-bg;
   font-size: 20px;
   margin: 5px;
+  user-select: none;
 }
 
 .nav-btn-text {
   color: $nav-btn-text;
   margin: 5px;
   font-size: 0.9em;
+  user-select: none;
 }
 </style>
