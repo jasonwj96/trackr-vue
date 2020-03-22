@@ -30,6 +30,7 @@ body {
   min-height: 100%;
   box-sizing: border-box;
   background-color: $main-bg;
+  font-family: "Roboto", sans-serif;
 }
 
 p {

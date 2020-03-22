@@ -4,14 +4,13 @@
       <div class="transaction-icon">
         <font-awesome-icon class="icon" icon="tv"></font-awesome-icon>
       </div>
-      <!-- <div class="transaction-icon-ph" /> -->
       <div class="transaction-info">
-        <p class="transaction-title">{{transaction.title}}</p>
-        <P class="transaction-desc">{{transaction.date}} - {{transaction.type}}</P>
+        <p class="transaction-title">{{ transaction.title }}</p>
+        <P class="transaction-desc">{{ transaction.date }} - {{ transaction.type }}</P>
       </div>
     </div>
     <div class="transaction-amount">
-      <p>{{transaction.amount}}</p>
+      <p>{{ transaction.amount }}</p>
     </div>
   </div>
 </template>
@@ -27,7 +26,7 @@ export default Vue.extend({
 });
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @import "@/themes/_dark_theme.scss";
 
 .transaction-record {
@@ -38,6 +37,8 @@ export default Vue.extend({
   justify-content: space-between;
   padding: 10px;
   background-color: $transaction-record-bg;
+  border-radius: 10px;
+  margin: 5px 0;
 
   &:hover {
     background-color: lighten($color: $transaction-record-bg, $amount: 5%);
@@ -60,31 +61,25 @@ export default Vue.extend({
     }
   }
 
-  // .transaction-icon-ph {
-  //   background-color: lighten(
-  //     $color: $transaction-icon-entertainment,
-  //     $amount: 20%
-  //   );
-  // }
-
   .transaction-info {
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: flex-start;
     padding: 10px 5px;
+    font-family: "Roboto";
 
     p {
       text-align: left;
     }
 
     .transaction-title {
-      font-size: 0.9em;
+      font-size: 1em;
       color: $transaction-title;
     }
 
     .transaction-desc {
-      font-size: 0.7em;
+      font-size: 0.9em;
       color: $transaction-desc;
     }
   }
@@ -99,7 +94,6 @@ export default Vue.extend({
 
     p {
       font-size: 0.9em;
-      font-weight: 300;
       color: $transaction-amount;
     }
   }
