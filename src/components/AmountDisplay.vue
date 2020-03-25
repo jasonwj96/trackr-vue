@@ -9,7 +9,7 @@ import Vue from "vue";
 export default Vue.extend({
   props: {
     title: String,
-    balance: Float64Array
+    balance: String
   }
 });
 </script>

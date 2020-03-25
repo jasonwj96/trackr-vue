@@ -11,11 +11,6 @@
       :key="transaction.id"
     ></transaction-record>
     <page-section title="Active subscriptions (monthly)" />
-    <transaction-record
-      v-for="transaction in transactions"
-      v-bind:transaction="transaction"
-      :key="transaction.id"
-    ></transaction-record>
   </div>
 </template>
 

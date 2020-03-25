@@ -1,9 +1,12 @@
 <template>
   <div class="transaction-record">
     <div style="display:flex">
-      <div class="transaction-icon">
-        <font-awesome-icon class="icon" icon="tv"></font-awesome-icon>
-      </div>
+      <transaction-icon type="entertainment" />
+      <transaction-icon type="food" />
+      <transaction-icon type="income" />
+      <transaction-icon type="shopping" />
+      <transaction-icon type="music" />
+
       <div class="transaction-info">
         <p class="transaction-title">{{ transaction.title }}</p>
         <P class="transaction-desc">{{ transaction.date }} - {{ transaction.type }}</P>
@@ -18,10 +21,14 @@
 <script lang="ts">
 import Vue from "vue";
 import Transaction from "@/models/Transaction";
+import TransactionIconVue from "./TransactionIcon.vue";
 
 export default Vue.extend({
+  components: {
+    "transaction-icon": TransactionIconVue
+  },
   props: {
-    transaction: Transaction
+    transaction: Object
   }
 });
 </script>
@@ -42,23 +49,6 @@ export default Vue.extend({
 
   &:hover {
     background-color: lighten($color: $transaction-record-bg, $amount: 5%);
-  }
-
-  .transaction-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 40px;
-    background-color: $transaction-icon-entertainment;
-    border-radius: 50%;
-    margin: 5px;
-    align-self: flex-start;
-
-    .icon {
-      font-size: 1em;
-      color: $transaction-icon-color;
-    }
   }
 
   .transaction-info {
