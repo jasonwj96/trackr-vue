@@ -90,7 +90,7 @@ export default Vue.extend({
     align-items: center;
     width: auto;
     height: auto;
-    padding: 5px;
+    padding: 0 5px;
 
     p {
       font-size: 0.9em;

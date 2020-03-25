@@ -42,7 +42,6 @@ export default Vue.extend({
   .balance {
     padding: 10px;
     font-weight: 100;
-    color: #fff;
     font-size: 4em;
   }
 }

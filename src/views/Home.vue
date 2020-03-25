@@ -26,6 +26,7 @@ import Transaction from "@/models/Transaction";
 import WelcomeTitle from "@/components/WelcomeTitle.vue";
 import AccountBalance from "@/components/AccountBalance.vue";
 import SavingsSectionVue from "../components/SavingsSection.vue";
+import axios, { AxiosResponse } from "axios";
 
 export default {
   name: "Home",
@@ -36,47 +37,13 @@ export default {
     "account-balance": AccountBalance,
     "savings-section": SavingsSectionVue
   },
-  data: () => {
-    const transactionList: Transaction[] = [];
-    let tr: Transaction = new Transaction();
-
-    tr.id = 1;
-    tr.type = "Entertainment";
-    tr.title = "NETFLIX.COM";
-    tr.date = "14/03/2019";
-    tr.amount = 12.99;
-
-    transactionList.push(tr);
-    tr = new Transaction();
-
-    tr.id = 2;
-    tr.type = "Misc";
-    tr.title = "AMAZON PRIME";
-    tr.date = "09/03/2019";
-    tr.amount = 14.99;
-
-    transactionList.push(tr);
-    tr = new Transaction();
-
-    tr.id = 3;
-    tr.type = "Music";
-    tr.title = "SPOTIFY";
-    tr.date = "14/03/2019";
-    tr.amount = 12.99;
-
-    transactionList.push(tr);
-
-    tr.id = 4;
-    tr.type = "Music";
-    tr.title = "SPOTIFY";
-    tr.date = "14/03/2019";
-    tr.amount = 20.99;
-
-    transactionList.push(tr);
-
-    return {
-      transactions: transactionList
-    };
+  data() {
+    return { transactions: [] };
+  },
+  mounted() {
+    axios
+      .get("https://localhost:44366/api/transaction")
+      .then((response: AxiosResponse) => (this.transactions = response.data));
   }
 };
 </script>
