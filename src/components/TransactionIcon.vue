@@ -1,10 +1,10 @@
 <template>
   <div class="transaction-icon">
-    <font-awesome-icon v-if="type == 'entertainment'" class="icon entertainment" icon="tv" />
-    <font-awesome-icon v-if="type == 'music'" class="icon music" icon="music" />
-    <font-awesome-icon v-if="type == 'food'" class="icon food" icon="utensils" />
-    <font-awesome-icon v-if="type == 'income'" class="icon income" icon="dollar-sign" />
-    <font-awesome-icon v-if="type == 'shopping'" class="icon shopping" icon="shopping-basket" />
+    <font-awesome-icon v-if="type == 'Entertainment'" class="icon entertainment" icon="tv" />
+    <font-awesome-icon v-if="type == 'Music'" class="icon music" icon="music" />
+    <font-awesome-icon v-if="type == 'Food'" class="icon food" icon="utensils" />
+    <font-awesome-icon v-if="type == 'Income'" class="icon income" icon="dollar-sign" />
+    <font-awesome-icon v-if="type == 'Shopping'" class="icon shopping" icon="shopping-basket" />
   </div>
 </template>
 

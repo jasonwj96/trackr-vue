@@ -1,15 +1,10 @@
 <template>
   <div class="transaction-record">
     <div style="display:flex">
-      <transaction-icon type="entertainment" />
-      <transaction-icon type="food" />
-      <transaction-icon type="income" />
-      <transaction-icon type="shopping" />
-      <transaction-icon type="music" />
-
+      <transaction-icon :type="transaction.type" />
       <div class="transaction-info">
         <p class="transaction-title">{{ transaction.title }}</p>
-        <P class="transaction-desc">{{ transaction.date }} - {{ transaction.type }}</P>
+        <P class="transaction-desc">{{ transaction.date}} - {{ transaction.type }}</P>
       </div>
     </div>
     <div class="transaction-amount">

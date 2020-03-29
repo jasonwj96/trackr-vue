@@ -1,16 +1,21 @@
 <template>
   <div id="home">
     <welcome-title title="Welcome, Jason" />
-    <account-balance balance="946.89" />
+    <account-balance :balance="balance" />
     <page-section title="Savings" />
     <savings-section />
     <page-section title="Most recent transactions" />
     <transaction-record
       v-for="transaction in transactions"
-      v-bind:transaction="transaction"
+      :transaction="transaction"
       :key="transaction.id"
     ></transaction-record>
     <page-section title="Active subscriptions (monthly)" />
+    <transaction-record
+      v-for="transaction in transactions"
+      :transaction="transaction"
+      :key="transaction.id"
+    ></transaction-record>
   </div>
 </template>
 
@@ -22,6 +27,7 @@ import WelcomeTitle from "@/components/WelcomeTitle.vue";
 import AccountBalance from "@/components/AccountBalance.vue";
 import SavingsSectionVue from "../components/SavingsSection.vue";
 import axios, { AxiosResponse } from "axios";
+// import { Endpoints } from "Endpoints";
 
 export default {
   name: "Home",
@@ -33,12 +39,24 @@ export default {
     "savings-section": SavingsSectionVue
   },
   data() {
-    return { transactions: [] };
+    return {
+      transactions: [] as Transaction[],
+      balance: 0 as number
+    };
   },
   mounted() {
     axios
-      .get("https://localhost:44366/api/transaction")
+      .get(`https://localhost:44366/api/trx/all`)
       .then((response: AxiosResponse) => (this.transactions = response.data));
+
+    const request = {
+      scope: "M",
+      quantity: 1
+    };
+
+    axios
+      .post(`https://localhost:44366/api/trx/balance`, request)
+      .then((response: AxiosResponse) => (this.balance = response.data));
   }
 };
 </script>
