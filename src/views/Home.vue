@@ -6,7 +6,7 @@
     <savings-section />
     <page-section title="Most recent transactions" />
     <transaction-record
-      v-for="transaction in transactions"
+      v-for="transaction  in transactions"
       :transaction="transaction"
       :key="transaction.id"
     ></transaction-record>

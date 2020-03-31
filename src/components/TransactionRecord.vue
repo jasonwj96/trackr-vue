@@ -25,7 +25,7 @@ export default Vue.extend({
   },
   props: {
     transaction: {
-      type: GenericTransaction,
+      type: Object,
       required: true
     }
   }
