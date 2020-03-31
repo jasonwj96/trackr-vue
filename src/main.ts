@@ -15,6 +15,8 @@ import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
+import { faLightbulb } from "@fortawesome/free-solid-svg-icons";
+import { faCloudDownloadAlt } from "@fortawesome/free-solid-svg-icons";
 
 Vue.config.productionTip = false;
 
@@ -28,6 +30,8 @@ library.add(faDollarSign);
 library.add(faShoppingBasket);
 library.add(faMusic);
 library.add(faUtensils);
+library.add(faLightbulb);
+library.add(faCloudDownloadAlt);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 

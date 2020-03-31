@@ -8,7 +8,11 @@
 import Vue from "vue";
 export default Vue.extend({
   props: {
-    title: String
+    title: {
+      type: String,
+      required: true,
+      default: "N/A"
+    }
   }
 });
 </script>

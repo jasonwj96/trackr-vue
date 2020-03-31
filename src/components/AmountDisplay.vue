@@ -8,8 +8,16 @@
 import Vue from "vue";
 export default Vue.extend({
   props: {
-    title: String,
-    balance: String
+    balance: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    title: {
+      type: String,
+      required: true,
+      default: "N/A"
+    }
   }
 });
 </script>

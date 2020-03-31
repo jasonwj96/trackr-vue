@@ -11,25 +11,22 @@
       :key="transaction.id"
     ></transaction-record>
     <page-section title="Active subscriptions (monthly)" />
-    <transaction-record
-      v-for="transaction in transactions"
-      :transaction="transaction"
-      :key="transaction.id"
-    ></transaction-record>
+    <page-section title="Taxes" />
   </div>
 </template>
 
 <script lang="ts">
 import TransactionRecord from "@/components/TransactionRecord.vue";
 import PageSection from "@/components/PageSection.vue";
-import Transaction from "@/models/Transaction";
+import GenericTransaction from "@/models/GenericTransaction";
+import Savings from "@/models/Savings";
 import WelcomeTitle from "@/components/WelcomeTitle.vue";
 import AccountBalance from "@/components/AccountBalance.vue";
-import SavingsSectionVue from "../components/SavingsSection.vue";
-import axios, { AxiosResponse } from "axios";
-// import { Endpoints } from "Endpoints";
+import SavingsSectionVue from "@/components/SavingsSection.vue";
+import Vue from "vue";
+import Axios from "@/http/Axios";
 
-export default {
+export default Vue.extend({
   name: "Home",
   components: {
     "transaction-record": TransactionRecord,
@@ -40,25 +37,16 @@ export default {
   },
   data() {
     return {
-      transactions: [] as Transaction[],
+      transactions: [] as GenericTransaction[],
       balance: 0 as number
     };
   },
-  mounted() {
-    axios
-      .get(`https://localhost:44366/api/trx/all`)
-      .then((response: AxiosResponse) => (this.transactions = response.data));
-
-    const request = {
-      scope: "M",
-      quantity: 1
-    };
-
-    axios
-      .post(`https://localhost:44366/api/trx/balance`, request)
-      .then((response: AxiosResponse) => (this.balance = response.data));
+  async mounted() {
+    const request = { scope: "A", quantity: 0 };
+    this.transactions = await Axios.fetchAllTransactions(request);
+    this.balance = await Axios.fetchBalance(request);
   }
-};
+});
 </script>
 
 <style lang="scss">

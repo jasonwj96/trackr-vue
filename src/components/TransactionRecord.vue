@@ -15,15 +15,19 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Transaction from "@/models/Transaction";
-import TransactionIconVue from "./TransactionIcon.vue";
+import Transaction from "@/models/GenericTransaction";
+import TransactionIconVue from "@/components/TransactionIcon.vue";
+import GenericTransaction from "@/models/GenericTransaction";
 
 export default Vue.extend({
   components: {
     "transaction-icon": TransactionIconVue
   },
   props: {
-    transaction: Object
+    transaction: {
+      type: GenericTransaction,
+      required: true
+    }
   }
 });
 </script>

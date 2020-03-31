@@ -1,4 +1,4 @@
-export default class Transaction {
+export default class GenericTransaction {
   id: string;
   type: string;
   title: string;

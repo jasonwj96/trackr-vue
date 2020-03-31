@@ -5,6 +5,8 @@
     <font-awesome-icon v-if="type == 'Food'" class="icon food" icon="utensils" />
     <font-awesome-icon v-if="type == 'Income'" class="icon income" icon="dollar-sign" />
     <font-awesome-icon v-if="type == 'Shopping'" class="icon shopping" icon="shopping-basket" />
+    <font-awesome-icon v-if="type == 'Utilities'" class="icon utilities" icon="lightbulb" />
+    <font-awesome-icon v-if="type == 'Loading'" class="icon loading" icon="cloud-download-alt" />
   </div>
 </template>
 
@@ -12,7 +14,11 @@
 import Vue from "vue";
 export default Vue.extend({
   props: {
-    type: String
+    type: {
+      type: String,
+      required: true,
+      default: "Loading"
+    }
   }
 });
 </script>
@@ -49,6 +55,12 @@ export default Vue.extend({
   }
   .shopping {
     background-color: $transaction-icon-shopping;
+  }
+  .utilities {
+    background-color: $transaction-icon-utilities;
+  }
+  .loading {
+    background-color: $transaction-icon-loading;
   }
 }
 </style>
