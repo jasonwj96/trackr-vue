@@ -18,10 +18,6 @@ export default {
 <style lang="scss">
 @import "themes/_dark_theme.scss";
 
-// * {
-//   border: 1px red solid;
-// }
-
 html,
 body {
   padding: 0px;
