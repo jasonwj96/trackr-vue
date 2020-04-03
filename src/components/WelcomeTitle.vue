@@ -5,12 +5,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-export default Vue.extend({
-  props: {
-    title: String
-  }
-});
+import { Vue, Prop, Component } from "vue-property-decorator";
+
+@Component
+export default class TransactionRecord extends Vue {
+  @Prop({ default: "N/A" }) readonly title: string;
+}
 </script>
 
 <style lang="scss" scoped>

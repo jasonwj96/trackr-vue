@@ -1,11 +1,11 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import TransactionStore from "@/store/TransactionStore";
+import { TransactionsState } from "@/store/modules/TransactionModule";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  modules: {
-    TransactionStore
-  }
-});
+export interface RootState {
+  transactions: TransactionsState;
+}
+
+export default new Vuex.Store<RootState>({});

@@ -5,32 +5,15 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import AmountDisplayVue from "@/components/AmountDisplay.vue";
+import AmountDisplay from "@/components/AmountDisplay.vue";
 import Savings from "@/models/Savings";
 import Axios from "@/http/Axios";
+import { Vue, Component, Prop } from "vue-property-decorator";
 
-export default Vue.extend({
-  components: {
-    "amount-display": AmountDisplayVue
-  },
-  data() {
-    return {
-      savings: new Savings()
-    };
-  },
-  async mounted() {
-    const savings: Savings = new Savings();
-
-    let request = { scope: "M", quantity: 1 };
-    savings.monthly = await Axios.fetchBalance(request);
-
-    request = { scope: "Y", quantity: 1 };
-    savings.yearly = await Axios.fetchBalance(request);
-
-    this.savings = savings;
-  }
-});
+@Component({ components: { AmountDisplay } })
+export default class Home extends Vue {
+  @Prop({ default: new Savings() }) readonly savings: Savings;
+}
 </script>
 <style lang="scss" scoped>
 .savings-section {

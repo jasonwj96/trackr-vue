@@ -14,22 +14,16 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import Transaction from "@/models/GenericTransaction";
-import TransactionIconVue from "@/components/TransactionIcon.vue";
 import GenericTransaction from "@/models/GenericTransaction";
+import TransactionIcon from "./TransactionIcon.vue";
+import { Vue, Component, Prop } from "vue-property-decorator";
 
-export default Vue.extend({
-  components: {
-    "transaction-icon": TransactionIconVue
-  },
-  props: {
-    transaction: {
-      type: Object,
-      required: true
-    }
-  }
-});
+@Component({ components: { TransactionIcon } })
+export default class TransactionRecord extends Vue {
+  @Prop({ default: new GenericTransaction(), required: true })
+  readonly transaction: GenericTransaction;
+}
 </script>
 
 <style lang="scss" scoped>

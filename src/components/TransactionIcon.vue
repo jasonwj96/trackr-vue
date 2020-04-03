@@ -11,16 +11,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-export default Vue.extend({
-  props: {
-    type: {
-      type: String,
-      required: true,
-      default: "Loading"
-    }
-  }
-});
+import { Vue, Prop, Component } from "vue-property-decorator";
+
+@Component
+export default class TransactionIcon extends Vue {
+  @Prop({ default: "Loading" }) readonly type: string;
+}
 </script>
 
 <style lang="scss" scoped>

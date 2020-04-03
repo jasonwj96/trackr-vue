@@ -5,16 +5,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-export default Vue.extend({
-  props: {
-    title: {
-      type: String,
-      required: true,
-      default: "N/A"
-    }
-  }
-});
+import { Vue, Prop, Component } from "vue-property-decorator";
+
+@Component
+export default class PageSection extends Vue {
+  @Prop({ default: "N/A", required: true }) readonly title: string;
+}
 </script>
 
 <style lang="scss" scoped>

@@ -5,21 +5,13 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-export default Vue.extend({
-  props: {
-    balance: {
-      type: Number,
-      required: true,
-      default: 0
-    },
-    title: {
-      type: String,
-      required: true,
-      default: "N/A"
-    }
-  }
-});
+import { Vue, Prop, Component } from "vue-property-decorator";
+
+@Component
+export default class AmountDisplay extends Vue {
+  @Prop({ default: 0, required: true }) readonly balance: number;
+  @Prop({ default: "N/A", required: true }) readonly title: string;
+}
 </script>
 <style lang="scss" scoped>
 .amount-display {

@@ -6,12 +6,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-export default Vue.extend({
-  props: {
-    balance: Number
-  }
-});
+import { Prop, Component, Vue } from "vue-property-decorator";
+
+@Component
+export default class AmountBalance extends Vue {
+  @Prop({ default: 0.0 }) readonly balance: number;
+}
 </script>
 
 <style lang="scss" scoped>
